@@ -1,0 +1,155 @@
+<html>
+<head>
+<title>
+SGINUP
+</title>
+</head>
+<style>
+@import"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body{
+
+background-color:;
+}
+table{
+	 font-family:Helvetica;
+	position:absolute;
+	left:5%;
+	top:2%;
+	height:70%;
+	width:25%;
+	background-color:white;
+	font-size:30px;
+	color:black;
+
+	background:transparent;
+
+}
+img{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+}
+.textbox{
+	width:100%;
+	overflow: hidden;
+	font-size: 20px;
+	padding: 8px 0;
+	margin: 8px 0;
+	border-bottom: 1px solid black;
+
+}
+.textbox input{
+border: none;
+outline: none;
+background:none;
+}
+.btn{
+width:100%;
+background:none;
+border: 3px solid black;
+color: black;
+padding: 5px;
+font-size:10px;
+
+
+
+}
+
+
+</style>
+<script type="text/javascript">
+
+function fn1(){
+	var str  =document.getElementById("uname").value;
+	var str4=document.getElementById('pass').value;
+
+
+              
+           
+         
+
+	
+	
+    link = 'http://' + window.location.host + "/login/" + str + "/" + str4;
+    
+    fetch(link).then( response => {
+
+                                    return response.json();
+
+                                }).then( response => {
+                                    console.log(response.is_success);
+                                    if(response.is_success){
+                                        localStorage.setItem('user_id', str);
+                                        window.location.href = "/static/dashboard.html";
+                                    }                                    
+                                });
+    
+    
+    
+}
+
+</script>
+
+<body>
+
+<img src="img1.jpg">
+
+<form>
+
+
+
+<table>
+	<tr>
+
+	<td>
+		<div class="login">
+		<h1>SIGN UP</h1>
+		</div>
+		
+	</td>
+	</tr>
+	<tr>
+	<br>
+	<br>
+
+	</tr>
+	
+
+	
+	<td>
+		<div class="textbox">
+		<i class="fa fa-user-circle" aria-hidden="true"></i>
+		<input id="uname"type="text" placeholder="Enter the username" name="">
+		</div>
+	</td>
+	</tr>
+	</td>
+	</tr>
+
+	<td>
+		<div class="textbox">
+		<i class="fa fa-lock" aria-hidden="true"></i>
+		<input id="pass"type="password" placeholder="Enter the password" name="">
+		</div>
+
+	</td
+		<tr>
+		<td>
+
+
+
+            <input class="btn" type="button" name="" value="login" onclick="fn1()">
+		</div>
+
+	</td>
+		</tr>
+
+</table>
+</form>
+
+
+
+</body>
+</html>
